@@ -1,0 +1,13 @@
+service Recipes {
+  rpc Find (ProductId) returns (Recipe) {}
+}
+
+message ProductId {
+  required uint32 id = 1;
+}
+
+message Recipe {
+  required uint32 id = 1;
+  required string title = 2;
+  required string notes = 3;
+}

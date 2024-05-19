@@ -1,0 +1,19 @@
+service Processing {
+  rpc Process (OrderRequest) returns (stream OrderStatusUpdate) {}
+}
+
+message OrderRequest {
+  required uint32 recipeId = 1;
+  required uint32 orderId = 2;
+}
+
+enum OrderStatus {
+    NEW = 1;
+    QUEUED = 2;
+    PROCESSING = 3;
+    DONE = 4;
+}
+
+message OrderStatusUpdate {
+  required OrderStatus status = 1;
+}
